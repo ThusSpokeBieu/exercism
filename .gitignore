@@ -1,0 +1,52 @@
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+*.class
+*.log
+*.iml
+/out/
+bin/
+build/
+target/
+*.gradle
+.gradle/
+.idea/
+.vscode/
+
+# Rust
+/target/
+Cargo.lock
+Cargo.toml
+
+# Go
+/bin/
+/pkg/
+*.exe
+*.test
+*.out
+*.log
+vendor/
+
+# Zig
+zig-out/
+*.o
+*.o.bak
+*.zig.cache
+*.zig-test
+
+# IDEs
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Outros
+.DS_Store
+Thumbs.db
+*.swp
+*.bak
+*.tmp
+*.tmp.*
