@@ -1,23 +1,22 @@
 const std = @import("std");
 
 pub fn isIsogram(str: []const u8) bool {
-    const alloc = std.heap.page_allocator;
-
-    var set: std.DynamicBitSet = std.DynamicBitSet.initEmpty(alloc, str.len) catch return false;
+    var set: std.bit_set.IntegerBitSet(128) = std.bit_set.IntegerBitSet(128).initEmpty();
 
     for (str) |c| {
         if (!isLetter(c)) continue;
-        if (set.isSet(toLower(c))) return false;
-        set.put(toLower(c));
+
+        const lower_c = toLower(c);
+
+        if (set.isSet(lower_c)) return false;
+        set.set(lower_c);
     }
 
     return true;
 }
 
 fn isLetter(c: u8) bool {
-    if (c >= 'A' and c <= 'Z') return true;
-    if (c >= 'a' and c <= 'z') return true;
-    return false;
+    return (c >= 'A' and c <= 'Z') or (c >= 'a' and c <= 'z');
 }
 
 fn toLower(c: u8) u8 {
